@@ -14,11 +14,56 @@ namespace CustomBetty
 {
     public class CustomBetty : VTOLMOD
     {
+        public enum CommonWarnings2
+        {
+            EngineFailure,
+            LeftEngineFailure,
+            RightEngineFailure,
+            APUFailure,
+            HydraulicsFailure,
+            Chaff,
+            ChaffLow,
+            ChaffEmpty,
+            Flare,
+            FlareLow,
+            FlareEmpty,
+            BingoFuel,
+            Altitude,
+            PullUp,
+            OverG,
+            MissileLaunch,
+            Missile,
+            Shoot,
+            Pitbull,
+            Warning,
+            Fire,
+            FuelLeak,
+            FuelDump,
+            LandingGear,
+            AutopilotOff,
+            WingFold,
+
+            RWRBlip,
+            RWRIRMissileIncoming,
+            RWRLockBlip,
+            RWRMissileBlip,
+            RWRMissileLoopLock,
+            RWRNewContactBlip
+        }
+
+
         public class Profile
         {
             public string filePath;
             public string name;
             public List<LineGroup> lineGroups;
+
+            public AudioClip blip;
+            public AudioClip irMissileIncoming;
+            public AudioClip lockBlip;
+            public AudioClip missileBlip;
+            public AudioClip missileLoopLock;
+            public AudioClip newContactBlip;
 
             public FlightWarnings.CommonWarningsClips GenerateBettyVoiceProfile()
             {
@@ -28,83 +73,101 @@ namespace CustomBetty
                     AudioClip temp = lineGroups[i].GenerateMessageAudio();
                     switch (lineGroups[i].type)
                     {
-                        case FlightWarnings.CommonWarnings.EngineFailure:
+                        case CommonWarnings2.EngineFailure:
                             output.EngineFailure = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.LeftEngineFailure:
+                        case CommonWarnings2.LeftEngineFailure:
                             output.LeftEngineFailure = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.RightEngineFailure:
+                        case CommonWarnings2.RightEngineFailure:
                             output.RightEngineFailure = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.APUFailure:
+                        case CommonWarnings2.APUFailure:
                             output.APUFailure = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.HydraulicsFailure:
+                        case CommonWarnings2.HydraulicsFailure:
                             output.HydraulicsFailure = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Chaff:
+                        case CommonWarnings2.Chaff:
                             output.Chaff = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.ChaffLow:
+                        case CommonWarnings2.ChaffLow:
                             output.ChaffLow = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.ChaffEmpty:
+                        case CommonWarnings2.ChaffEmpty:
                             output.ChaffEmpty = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Flare:
+                        case CommonWarnings2.Flare:
                             output.Flare = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.FlareLow:
+                        case CommonWarnings2.FlareLow:
                             output.FlareLow = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.FlareEmpty:
+                        case CommonWarnings2.FlareEmpty:
                             output.FlareEmpty = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.BingoFuel:
+                        case CommonWarnings2.BingoFuel:
                             output.BingoFuel = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Altitude:
+                        case CommonWarnings2.Altitude:
                             output.Altitude = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.PullUp:
+                        case CommonWarnings2.PullUp:
                             output.PullUp = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.OverG:
+                        case CommonWarnings2.OverG:
                             output.OverG = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.MissileLaunch:
+                        case CommonWarnings2.MissileLaunch:
                             output.MissileLaunch = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Missile:
+                        case CommonWarnings2.Missile:
                             output.Missile = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Shoot:
+                        case CommonWarnings2.Shoot:
                             output.Shoot = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Pitbull:
+                        case CommonWarnings2.Pitbull:
                             output.Pitbull = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Warning:
+                        case CommonWarnings2.Warning:
                             output.Warning = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.Fire:
+                        case CommonWarnings2.Fire:
                             output.Fire = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.FuelLeak:
+                        case CommonWarnings2.FuelLeak:
                             output.FuelLeak = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.FuelDump:
+                        case CommonWarnings2.FuelDump:
                             output.FuelDump = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.LandingGear:
+                        case CommonWarnings2.LandingGear:
                             output.LandingGear = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.AutopilotOff:
+                        case CommonWarnings2.AutopilotOff:
                             output.AutopilotOff = temp;
                             break;
-                        case FlightWarnings.CommonWarnings.WingFold:
+                        case CommonWarnings2.WingFold:
                             output.WingFold = temp;
+                            break;
+                        case CommonWarnings2.RWRBlip:
+                            blip = temp;
+                            break;
+                        case CommonWarnings2.RWRIRMissileIncoming:
+                            irMissileIncoming = temp;
+                            break;
+                        case CommonWarnings2.RWRLockBlip:
+                            lockBlip = temp;
+                            break;
+                        case CommonWarnings2.RWRMissileBlip:
+                            missileBlip = temp;
+                            break;
+                        case CommonWarnings2.RWRMissileLoopLock:
+                            missileLoopLock = temp;
+                            break;
+                        case CommonWarnings2.RWRNewContactBlip:
+                            newContactBlip = temp;
                             break;
                         default:
                             break;
@@ -123,7 +186,7 @@ namespace CustomBetty
                 {
                     Debug.Log(filePath + " exists!");
                     DirectoryInfo info = new DirectoryInfo(filePath);
-                    foreach (FlightWarnings.CommonWarnings messageType in Enum.GetValues(typeof(FlightWarnings.CommonWarnings)))
+                    foreach (CommonWarnings2 messageType in Enum.GetValues(typeof(CommonWarnings2)))
                     {
                         Debug.Log("Checking for: " + messageType.ToString());
                         if (Directory.Exists(filePath + messageType.ToString() + @"\"))
@@ -152,7 +215,7 @@ namespace CustomBetty
         public class LineGroup
         {
             public string filePath;
-            public FlightWarnings.CommonWarnings type;
+            public CommonWarnings2 type;
             public string clipPath;
             public AudioClip clip;
 
@@ -227,7 +290,8 @@ namespace CustomBetty
             {
                 Debug.Log("Replacing betty!");
 
-                FlightWarnings.CommonWarningsClips bettyVoiceProfile = bettyVoiceProfiles[UnityEngine.Random.Range(0, bettyVoiceProfiles.Count)];
+                int profile = UnityEngine.Random.Range(0, bettyVoiceProfiles.Count);
+                FlightWarnings.CommonWarningsClips bettyVoiceProfile = bettyVoiceProfiles[profile];
 
                 FlightWarnings[] bettys = UnityEngine.Object.FindObjectsOfType<FlightWarnings>();
                 foreach (FlightWarnings betty in bettys)
@@ -243,6 +307,40 @@ namespace CustomBetty
                 {
                     cm.chaffAnnounceClip = bettyVoiceProfile.Chaff;
                     cm.flareAnnounceClip = bettyVoiceProfile.Flare;
+                }
+
+                Profile voiceProfile = profiles[profile];
+                IRMissileIncomingWarning[] irs = UnityEngine.Object.FindObjectsOfType<IRMissileIncomingWarning>();
+                foreach (IRMissileIncomingWarning ir in irs)
+                {
+                    if (voiceProfile.irMissileIncoming != null) {
+                        ir.audioSource.clip = voiceProfile.irMissileIncoming;
+                    }
+                }
+
+                DashRWR[] rwrs = UnityEngine.Object.FindObjectsOfType<DashRWR>();
+                foreach (DashRWR rwr in rwrs)
+                {
+                    if (voiceProfile.blip != null)
+                    {
+                        rwr.radarBlip = voiceProfile.blip;
+                    }
+                    if (voiceProfile.irMissileIncoming != null)
+                    {
+                        rwr.lockBlip = voiceProfile.lockBlip;
+                    }
+                    if (voiceProfile.missileBlip != null)
+                    {
+                        rwr.missileBlip = voiceProfile.missileBlip;
+                    }
+                    if (voiceProfile.missileLoopLock != null)
+                    {
+                        rwr.missileLockLoopAudioSource.clip = voiceProfile.missileLoopLock;
+                    }
+                    if (voiceProfile.newContactBlip != null)
+                    {
+                        rwr.newContactBlip = voiceProfile.newContactBlip;
+                    }
                 }
             }
             else {
