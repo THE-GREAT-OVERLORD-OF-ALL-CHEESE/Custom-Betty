@@ -80,8 +80,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="IRMissileWarningReplacer.cs" />
+    <Compile Include="Patches\Patch_CountermeasureManager.cs" />
+    <Compile Include="Patches\Patch_DashRWR.cs" />
+    <Compile Include="Patches\Patch_FlightWarnings.cs" />
+    <Compile Include="Patches\Patch_HUDCollisionWarning.cs" />
+    <Compile Include="Patches\Patch_HUDStallWarning.cs" />
+    <Compile Include="Patches\Patch_IRMissileIncomingWarning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF EXIST "C:\Program Files (x86)\Steam\steamapps\common\VTOL VR\VTOLVR_ModLoader\VTOLVR-ModLoader.exe" (
