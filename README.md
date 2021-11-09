@@ -1,2 +1,2 @@
 # Custom-Betty
- Allows the flight warnings to be replaced with custom sounds
+ Allows the VTOL VR flight warnings to be replaced with custom sounds
